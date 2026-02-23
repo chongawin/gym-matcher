@@ -5,7 +5,15 @@ const withNextIntl = createNextIntlPlugin('./src/shared/i18n/request.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Your Next.js config here
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '/PokeAPI/sprites/**',
+      },
+    ],
+  },
 }
 
 export default withPayload(withNextIntl(nextConfig))

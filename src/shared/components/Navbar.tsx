@@ -7,6 +7,7 @@ import { Route } from '@/frontend/enums/route.enum'
 
 const navLinks = [
   { href: Route.HOME, label: 'Home', icon: '🏠' },
+  { href: Route.POKEMON, label: 'Pokémon', icon: '🎮' },
   { href: Route.CATEGORIES, label: 'Categories', icon: '📁' },
   { href: Route.PRODUCTS, label: 'Products', icon: '🛍️' },
 ]

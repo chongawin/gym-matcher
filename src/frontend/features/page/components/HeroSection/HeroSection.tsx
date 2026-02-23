@@ -36,9 +36,9 @@ export const HeroSection = () => {
           size="lg"
           className="bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transition-all"
         >
-          <Link href="/categories">
-            <span className="mr-2">📁</span>
-            {t('buttons.browseCategories')}
+          <Link href="/pokemon">
+            <span className="mr-2">🎮</span>
+            Explore Pokémon
           </Link>
         </Button>
         <Button
@@ -47,9 +47,9 @@ export const HeroSection = () => {
           size="lg"
           className="border-2 border-slate-300 hover:border-purple-500 hover:bg-purple-50 dark:border-slate-700 dark:hover:border-purple-500 dark:hover:bg-purple-950/50"
         >
-          <Link href="/products">
-            <span className="mr-2">🛍️</span>
-            {t('buttons.viewProducts')}
+          <Link href="/categories">
+            <span className="mr-2">📁</span>
+            {t('buttons.browseCategories')}
           </Link>
         </Button>
       </div>

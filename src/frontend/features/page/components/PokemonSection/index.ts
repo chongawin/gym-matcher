@@ -1,0 +1,1 @@
+export { PokemonSection } from './PokemonSection'
