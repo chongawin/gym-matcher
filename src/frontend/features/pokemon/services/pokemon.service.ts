@@ -41,10 +41,10 @@ export const pokemonService = {
 
   /**
    * Get random Pokemon
-   * Note: PokeAPI has over 1000+ Pokemon, we'll use 1-151 (Gen 1) for simplicity
+   * Note: PokeAPI has over 1000+ Pokemon, we'll use 1-1025 for simplicity
    */
   getRandomPokemon: async (): Promise<Pokemon> => {
-    const randomId = Math.floor(Math.random() * 151) + 1
+    const randomId = Math.floor(Math.random() * 1025) + 1
     return pokemonService.getPokemon(randomId)
   },
 

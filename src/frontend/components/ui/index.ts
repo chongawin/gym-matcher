@@ -7,3 +7,4 @@ export {
   CardDescription,
   CardContent,
 } from './Card'
+export { BaseSearchInput, type BaseSearchInputProps } from './BaseSearchInput'

@@ -247,9 +247,9 @@ describe('pokemonService', () => {
   })
 
   describe('getRandomPokemon', () => {
-    it('should fetch a random Pokemon from Gen 1 (ID 1-151)', async () => {
+    it('should fetch a random Pokemon from Gen 1 (ID 1-1025)', async () => {
       // Arrange
-      const mockRandomPokemon = { ...mockPokemon, id: 41, name: 'random' }
+      const mockRandomPokemon = { ...mockPokemon, id: 277, name: 'random' }
       global.fetch = vi.fn(() =>
         Promise.resolve({
           ok: true,
@@ -258,7 +258,7 @@ describe('pokemonService', () => {
       )
 
       // Mock Math.random to return a predictable value
-      // Math.floor(0.27 * 151) + 1 = Math.floor(40.77) + 1 = 40 + 1 = 41
+      // Math.floor(0.27 * 1025) + 1 = Math.floor(276.75) + 1 = 276 + 1 = 277
       vi.spyOn(Math, 'random').mockReturnValue(0.27)
 
       // Act
@@ -266,10 +266,10 @@ describe('pokemonService', () => {
 
       // Assert
       expect(result).toEqual(mockRandomPokemon)
-      expect(global.fetch).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/41')
+      expect(global.fetch).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/277')
     })
 
-    it('should generate IDs within valid range (1-151)', async () => {
+    it('should generate IDs within valid range (1-1025)', async () => {
       // Arrange
       global.fetch = vi.fn(() =>
         Promise.resolve({
@@ -286,10 +286,11 @@ describe('pokemonService', () => {
       await pokemonService.getRandomPokemon()
       expect(global.fetch).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/1')
 
-      // Test maximum (0.999... -> ID 151)
-      randomSpy.mockReturnValueOnce(0.999)
+      // Test maximum (0.9995 -> ID 1025)
+      // Math.floor(0.9995 * 1025) + 1 = Math.floor(1024.4875) + 1 = 1024 + 1 = 1025
+      randomSpy.mockReturnValueOnce(0.9995)
       await pokemonService.getRandomPokemon()
-      expect(global.fetch).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/151')
+      expect(global.fetch).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/1025')
     })
   })
 

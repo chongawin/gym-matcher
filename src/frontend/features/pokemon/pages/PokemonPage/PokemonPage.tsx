@@ -3,14 +3,27 @@
 import { useState, useEffect } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 
-import { useRandomPokemon, POKEMON_QUERY_KEYS } from '@/frontend/features/pokemon/hooks'
+import { useRandomPokemon, usePokemon, POKEMON_QUERY_KEYS } from '@/frontend/features/pokemon/hooks'
 import { PokemonCard } from '@/frontend/features/pokemon/components'
-import { Button } from '@/frontend/components/ui'
+import { BaseSearchInput, Button } from '@/frontend/components'
 
 const PokemonPage = () => {
   const queryClient = useQueryClient()
-  const { data: pokemon, isLoading, isError, error } = useRandomPokemon()
+  const [searchQuery, setSearchQuery] = useState<string | null>(null)
   const [autoRefresh, setAutoRefresh] = useState(false)
+  
+  // Use search query if available, otherwise use random Pokemon
+  const { data: searchedPokemon, isLoading: isSearching, isError: isSearchError, error: searchError } = usePokemon(
+    searchQuery || 'ditto',
+    { enabled: !!searchQuery }
+  )
+  const { data: randomPokemon, isLoading: isLoadingRandom, isError: isRandomError, error: randomError } = useRandomPokemon()
+  
+  // Use searched Pokemon if search query exists, otherwise show random
+  const pokemon = searchQuery ? searchedPokemon : randomPokemon
+  const isLoading = searchQuery ? isSearching : isLoadingRandom
+  const isError = searchQuery ? isSearchError : isRandomError
+  const error = searchQuery ? searchError : randomError
 
   // Auto-refresh every 5 seconds when enabled
   useEffect(() => {
@@ -24,7 +37,17 @@ const PokemonPage = () => {
   }, [autoRefresh, queryClient])
 
   const handleManualRefresh = () => {
+    setSearchQuery(null) // Clear search when clicking random
     queryClient.invalidateQueries({ queryKey: POKEMON_QUERY_KEYS.random() })
+  }
+  
+  const handleSearch = (query: string) => {
+    setAutoRefresh(false) // Stop auto-refresh when searching
+    setSearchQuery(query)
+  }
+  
+  const handleClearSearch = () => {
+    setSearchQuery(null)
   }
 
   return (
@@ -51,6 +74,36 @@ const PokemonPage = () => {
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Discover random Pokémon from Generation 1 with real-time data fetching using TanStack Query
           </p>
+        </div>
+
+        {/* Search Section */}
+        <div className="w-full max-w-2xl mx-auto mb-12">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900">
+            <div className="mb-4 flex items-center gap-2">
+              <span className="text-2xl">🔍</span>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                Search Pokémon
+              </h2>
+            </div>
+            <BaseSearchInput
+              placeholder="Enter Pokémon name or ID (e.g., pikachu, 25)"
+              onSearch={handleSearch}
+              isLoading={isSearching}
+            />
+            {searchQuery && (
+              <div className="mt-4 flex items-center gap-2">
+                <span className="text-sm text-slate-600 dark:text-slate-400">
+                  Searching for: <strong className="text-purple-600 dark:text-purple-400">{searchQuery}</strong>
+                </span>
+                <button
+                  onClick={handleClearSearch}
+                  className="text-sm text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 underline"
+                >
+                  Clear
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Content */}
@@ -90,6 +143,17 @@ const PokemonPage = () => {
 
               {/* Control Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
+                {searchQuery && (
+                  <Button
+                    onClick={handleClearSearch}
+                    size="lg"
+                    variant="outline"
+                    className="border-2"
+                  >
+                    <span className="mr-2 text-xl">✖️</span>
+                    Clear Search
+                  </Button>
+                )}
                 <Button
                   onClick={handleManualRefresh}
                   size="lg"
@@ -160,7 +224,7 @@ const PokemonPage = () => {
                   <div className="flex items-center gap-2 rounded-lg bg-purple-50 px-4 py-3 dark:bg-purple-950">
                     <span className="text-2xl">🎯</span>
                     <span className="text-sm text-slate-700 dark:text-slate-300">
-                      Random Generation 1 Pokémon (IDs: 1-151)
+                      Random Generation 1 Pokémon (IDs: 1-1025)
                     </span>
                   </div>
                 </div>

@@ -15,13 +15,18 @@ export const POKEMON_QUERY_KEYS = {
 /**
  * Hook to fetch a Pokemon by name or ID
  * @param nameOrId - Pokemon name (e.g., "ditto") or ID (e.g., 132)
+ * @param options - Additional query options
  */
-export const usePokemon = (nameOrId: string | number): UseQueryResult<Pokemon, Error> => {
+export const usePokemon = (
+  nameOrId: string | number,
+  options?: { enabled?: boolean }
+): UseQueryResult<Pokemon, Error> => {
   return useQuery({
     queryKey: POKEMON_QUERY_KEYS.pokemon(nameOrId),
     queryFn: () => pokemonService.getPokemon(nameOrId),
     staleTime: 1000 * 60 * 5, // 5 minutes
     gcTime: 1000 * 60 * 10, // 10 minutes (formerly cacheTime)
+    ...options,
   })
 }
 
