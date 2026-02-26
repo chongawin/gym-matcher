@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th" suppressHydrationWarning>
-      <body className={`${prompt.variable} ${plexMono.variable} font-sans antialiased`}>
+      <body className={`${prompt.variable} ${plexMono.variable} font-sans antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>

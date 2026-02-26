@@ -2,20 +2,35 @@
 
 import {
   HeroSection,
-  FeaturesSection,
-  TechStackSection,
-  ProjectStructureSection,
+  HowItWorksSection,
+  CtaSection,
 } from '../../components'
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50 dark:from-slate-950 dark:via-purple-950 dark:to-slate-950">
-      <div className="container mx-auto px-4 pt-32 pb-16">
-        <div className="flex flex-col items-center justify-center gap-12">
-          <HeroSection />
-          <FeaturesSection />
-          <TechStackSection />
-          <ProjectStructureSection />
+    <div className="min-h-screen bg-gradient-to-b from-background via-primary/5 to-background">
+      {/* Hero */}
+      <div className="w-full pb-16">
+        <HeroSection />
+      </div>
+
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+
+      {/* How It Works */}
+      <div className="w-full py-16">
+        <div className="flex flex-col items-center gap-0 px-6">
+          <HowItWorksSection />
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+
+      {/* CTA */}
+      <div className="w-full py-16">
+        <div className="flex flex-col items-center px-6">
+          <CtaSection />
         </div>
       </div>
     </div>

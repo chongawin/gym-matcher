@@ -49,7 +49,7 @@ export const BaseSearchInput = ({
             onChange={(e) => setQuery(e.target.value)}
             placeholder={placeholder}
             disabled={isLoading}
-            className="w-full rounded-lg border-2 border-slate-200 bg-white px-5 py-3 text-base text-slate-900 transition-colors placeholder:text-slate-400 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-purple-400"
+            className="w-full rounded-lg border-2 border-slate-200 bg-white px-5 py-3 text-base text-slate-900 transition-colors placeholder:text-slate-400 focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-red-400"
           />
           
           {showClearButton && query && !isLoading && (
@@ -76,7 +76,7 @@ export const BaseSearchInput = ({
           
           {isLoading && (
             <div className="absolute right-3 top-1/2 -translate-y-1/2">
-              <div className="h-5 w-5 animate-spin rounded-full border-2 border-purple-500 border-t-transparent"></div>
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-red-500 border-t-transparent"></div>
             </div>
           )}
         </div>
@@ -86,7 +86,7 @@ export const BaseSearchInput = ({
             type="submit"
             disabled={!query.trim() || isLoading}
             size="lg"
-            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-gradient-to-r from-primary to-primary-to text-white hover:opacity-90 shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span className="mr-2 text-xl">🔍</span>
             {buttonText}

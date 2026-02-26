@@ -1,6 +1,6 @@
 export * from './icons'
 export * from './ui'
 export * from './layouts'
-export { QueryClientProvider } from './providers'
+export { QueryClientProvider, AuthListener } from './providers'
 export { BaseSearchInput } from './ui'
 export type { BaseSearchInputProps as SearchInputProps } from './ui'

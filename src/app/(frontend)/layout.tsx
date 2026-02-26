@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
 
-import { QueryClientProvider } from '@/frontend/components'
+import { QueryClientProvider, AuthListener } from '@/frontend/components'
 import { Navbar } from '@/shared/components'
 import { LocalizationProvider } from '@/shared/components/providers'
 
@@ -14,8 +14,9 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
   return (
     <LocalizationProvider>
       <QueryClientProvider>
+        <AuthListener />
         <Navbar />
-        {children}
+        <main className="pt-16 pb-16 md:pt-20 md:pb-0">{children}</main>
       </QueryClientProvider>
     </LocalizationProvider>
   )

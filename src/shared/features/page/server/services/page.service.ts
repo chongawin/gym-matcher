@@ -7,7 +7,7 @@ interface FindPageOptions {
 export async function findOnePageByIdentifier(
   payload: Payload,
   identifier: string,
-  options?: FindPageOptions,
+  _options?: FindPageOptions,
 ) {
   try {
     // This is a placeholder implementation

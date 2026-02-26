@@ -1,4 +1,5 @@
 export { HeroSection } from './HeroSection'
 export { FeaturesSection, FeatureCard } from './FeaturesSection'
-export { TechStackSection, TechStackItem } from './TechStackSection'
-export { ProjectStructureSection } from './ProjectStructureSection'
+export { HowItWorksSection } from './HowItWorksSection'
+export { SafetySection } from './SafetySection'
+export { CtaSection } from './CtaSection'

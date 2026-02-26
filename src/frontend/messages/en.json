@@ -1,36 +1,204 @@
 {
+  "navbar": {
+    "brand": "GYM MATCHER",
+    "tagline": "Find your gym partner",
+    "home": "Home",
+    "findPartners": "Find Partner",
+    "myPartners": "My Partners",
+    "chat": "Chat",
+    "sessions": "Sessions",
+    "signedInAs": "Signed in as",
+    "logout": "Sign out",
+    "language": "Language",
+    "login": "Sign in",
+    "signup": "Sign up",
+    "profile": "Profile",
+    "ageShort": "A",
+    "weightShort": "W",
+    "heightShort": "H"
+  },
   "home": {
-    "badge": "Next.js 16 + Payload CMS",
+    "badge": "🏋️ Beta — Limited Spots Available",
     "hero": {
-      "title1": "Build Modern",
-      "title2": "Web Applications",
-      "description": "Modern monolithic architecture with Payload CMS, shadcn/ui and cutting-edge technologies"
+      "title1": "Find Your Perfect",
+      "title2": "Gym Partner",
+      "description": "Train harder. Stay consistent. Stay safe."
     },
     "buttons": {
-      "browseCategories": "Browse Categories",
-      "viewProducts": "View Products"
+      "startMatching": "Start Matching",
+      "howItWorks": "How it works"
     },
-    "features": {
-      "nextjs": {
-        "title": "Next.js 16",
-        "description": "Latest features with App Router, Server Components and Turbopack for blazing fast development"
-      },
-      "shadcn": {
-        "title": "shadcn/ui",
-        "description": "Beautiful and accessible components built with Radix UI and Tailwind CSS"
-      },
-      "payload": {
-        "title": "Payload CMS",
-        "description": "Powerful headless CMS with PostgreSQL, TypeScript and full-featured API"
+    "howItWorks": {
+      "badge": "Simple Process",
+      "title": "How It Works",
+      "description": "From sign-up to your first session — in three steps.",
+      "stepLabel": "Step",
+      "steps": {
+        "1": {
+          "title": "Set your schedule",
+          "description": "Tell us which days, times, and gym you train at. We only match you with people who fit your routine."
+        },
+        "2": {
+          "title": "Match with one partner",
+          "description": "We suggest one compatible partner at a time — same schedule, same fitness level, same vibe."
+        },
+        "3": {
+          "title": "Confirm & train together",
+          "description": "Both must agree before it's a match. Then show up, push each other, and hit your goals."
+        }
       }
     },
-    "techStack": {
-      "title": "Modern Tech Stack",
-      "description": "Built with the latest and greatest technologies"
+    "cta": {
+      "title": "Ready to find your gym partner?",
+      "description": "Join thousands of people already training smarter — together.",
+      "startMatching": "Start Matching",
+      "createAccount": "Create Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to continue",
+      "heading": "Sign In",
+      "description": "Enter your email and password to sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign Up"
     },
-    "projectStructure": {
-      "title": "Project Structure",
-      "description": "Clean, scalable and maintainable architecture"
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Start for free, no credit card required",
+      "heading": "Sign Up",
+      "description": "Create a new account to get started",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Sign Up",
+      "submitting": "Signing up...",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign In",
+      "successTitle": "Registration Successful!",
+      "successMessage": "Please check your email to verify your account"
+    },
+    "validation": {
+      "passwordMismatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters"
+    },
+    "onboarding": {
+      "title": "Complete Your Profile",
+      "subtitle": "Help us find the perfect gym partner for you",
+      "step": "Step",
+      "of": "of",
+      "next": "Next",
+      "back": "Back",
+      "finish": "Finish",
+      "finishing": "Saving...",
+      "skip": "Skip for now",
+      "steps": {
+        "basicInfo": {
+          "title": "Basic Info",
+          "displayName": "Display Name",
+          "displayNamePlaceholder": "Nickname shown to others",
+          "firstName": "First Name",
+          "firstNamePlaceholder": "e.g. John",
+          "lastName": "Last Name",
+          "lastNamePlaceholder": "e.g. Doe",
+          "gender": "Gender",
+          "age": "Age",
+          "agePlaceholder": "e.g. 25",
+          "heightCm": "Height",
+          "weightKg": "Weight"
+        },
+        "training": {
+          "title": "Fitness Info",
+          "goal": "Fitness Goal",
+          "experienceLevel": "Experience Level",
+          "commitmentLevel": "Commitment Level",
+          "programType": "Program Type"
+        },
+        "partner": {
+          "title": "Matching Preferences",
+          "preferredGender": "Preferred Partner Gender",
+          "availableTime": "Available Training Time",
+          "bio": "About You",
+          "bioPlaceholder": "Tell your future partner a bit about yourself..."
+        }
+      },
+      "options": {
+        "gender": {
+          "male": "Male",
+          "female": "Female",
+          "other": "Prefer not to say"
+        },
+        "goal": {
+          "fat_loss": "Fat Loss",
+          "muscle_gain": "Muscle Gain",
+          "cardio": "Cardio",
+          "strength": "Strength"
+        },
+        "experienceLevel": {
+          "beginner": "Beginner",
+          "intermediate": "Intermediate",
+          "advanced": "Advanced"
+        },
+        "programType": {
+          "gym": "Gym",
+          "home": "Home Workout",
+          "crossfit": "CrossFit",
+          "group_class": "Group Class",
+          "outdoor": "Outdoor"
+        },
+        "commitmentLevel": {
+          "casual": "Casual (1–2x / week)",
+          "regular": "Regular (3–4x / week)",
+          "hardcore": "Hardcore (5+ / week)"
+        },
+        "preferredGender": {
+          "male": "Male",
+          "female": "Female",
+          "any": "Any"
+        }
+      }
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "subtitle": "Manage your gym profile",
+    "editProfile": "Edit Profile",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "saveSuccess": "Profile updated!",
+    "sections": {
+      "basic": "Basic Info",
+      "physical": "Physical Stats",
+      "fitness": "Fitness Info",
+      "matching": "Matching Preferences"
+    },
+    "fields": {
+      "displayName": "Display Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "gender": "Gender",
+      "age": "Age",
+      "heightCm": "Height (cm)",
+      "weightKg": "Weight (kg)",
+      "goal": "Fitness Goal",
+      "experienceLevel": "Experience Level",
+      "commitmentLevel": "Commitment Level",
+      "programType": "Program Type",
+      "preferredGender": "Preferred Partner",
+      "availableTimeStart": "Available From",
+      "availableTimeEnd": "Available Until",
+      "bio": "About Me",
+      "isVisible": "Visible to Others",
+      "notSet": "Not set"
     }
   }
 }
